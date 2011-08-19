@@ -1,0 +1,23 @@
+{% extends 'ExblogBundle::layout.html.twig' %}
+
+{% block title %}Liste des article {{ cat }}{% endblock %}
+{% block content%}
+<table>
+{% for a in Article %}
+<tr>
+  <td>{{ a.title }} Categorie : {{ cat }}</td>
+</tr>
+<tr>
+  <td>{{ a.content }}</td>
+</tr>
+<tr>
+  <td><a href="{{ path('my_blog_edit_article', { 'id': a.id }) }}">Modifier</a></td>
+  <td><a href="{{ path('my_blog_delete_article', { 'id': a.id }) }}">Supprimer</a></td>
+</tr>
+{% else %}
+<tr><td>Aucun article n'a été trouvé.</td></tr>
+{% endfor %}
+</table>
+
+<p><a href="{{ path('my_blog_add_article') }}">Ajouter un article</a><p>
+{% endblock %}

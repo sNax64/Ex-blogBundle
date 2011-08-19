@@ -1,0 +1,32 @@
+my_blog_bundle:
+    pattern:  /voodoo/{slug}
+    defaults: { _controller: ExblogBundle:Article:aff_one }
+
+my_blog_see_article:
+    pattern:  /{category}/{page}
+    defaults: { _controller: ExblogBundle:Article:aff_all, page: 1 }
+    requirements:
+        category:  \[a-zA-Z]{3, 25}
+        page:  \d+
+
+my_blog_see_one_article:
+    pattern:  /article/{slug}
+    defaults: { _controller: ExblogBundle:Article:aff_one }
+    requirements:
+        slug:  \[a-zA-Z]{3, 255}
+
+my_blog_add_article:
+    pattern:  add/article/
+    defaults: { _controller: ExblogBundle:Article:add }
+
+my_blog_edit_article:
+    pattern:  /article/edit/{id}
+    defaults: { _controller: ExblogBundle:Article:edit }
+    requirements:
+        id:  \d+
+
+my_blog_delete_article:
+    pattern:  /article/delete/{id}
+    defaults: { _controller: ExblogBundle:Article:delete }
+    requirements:
+        id:  \d+
