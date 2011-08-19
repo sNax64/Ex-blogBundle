@@ -1,0 +1,43 @@
+Mon Premier Bundle >
+
+Blog Bundle :
+
+Installation :
+
+- Create DIR Ex/ in src/ and put DIR blogBundle/ in Ex/
+- add lines 
+----------------------------------------------------------
+ExblogBundle:
+    resource: "@ExblogBundle/Resources/config/routing.yml"
+    prefix:   /blog
+----------------------------------------------------------
+				in app/config/routing.yml
+- add lines :
+----------------------------------------------------------
+imports:
+ ...
+ - { resource: "@ExblogBundle/Resources/config/menu.xml" }
+----------------------------------------------------------
+				  in app/config/config.yml
+- add lines :
+----------------------------------------------------------
+$loader->registerNamespaces(array(
+ ...
+   'Ex\blogBundle'    => __DIR__ .'/../src/Ex/blogBundle',
+----------------------------------------------------------
+				       in app/autoload.php
+- add lines :
+----------------------------------------------------------
+   $bundles = array(
+ ...
+   new Ex\blogBundle\ExblogBundle(),
+----------------------------------------------------------
+				      in app/AppKernel.php
+
+Prefix for Symfony : /blog   :    home
+Dump sql : blogBundle.sql
+
+				         !End Installation
+
+Symfony 2 est un outil simple !
+Merci
