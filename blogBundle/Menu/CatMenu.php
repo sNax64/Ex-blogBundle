@@ -22,11 +22,12 @@ class CatMenu extends Menu
     parent::__construct();
     $this->setCurrentUri($request->getRequestUri());
     $category = $em->getRepository('ExblogBundle:Category')->findAll();
+    $this->addChild('Home', $router->generate('my_blog_home'));
     foreach ($category as $cat)
       {
         $this->addChild($cat->getName(), $router->generate('my_blog_affall_article',
 							   array('category' => $cat->getName())));
       }
-    $this->addChild('Ajouter', $router->generate('my_blog_add_article'));
+    $this->addChild('Ajouter', $router->generate('my_blog_add_category'));
   }
 }

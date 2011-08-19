@@ -32,7 +32,7 @@ class ArticleController extends ContainerAware
   {
     $em = $this->container->get('doctrine')->getEntityManager();
     $article = $em->getRepository('ExblogBundle:Article')->findAll(); 
-    return $this->container->get('templating')->renderResponse('ExblogBundle:Article:affall.html.twig',
+    return $this->container->get('templating')->renderResponse('ExblogBundle:Article:affhome.html.twig',
 							       array('Article' => $article));
   }
   public function editAction($id = 0)

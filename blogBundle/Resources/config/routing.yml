@@ -1,6 +1,6 @@
 my_blog_home:
     pattern:  /
-    defaults  { _controller: ExblogBundle:Article:affhome }
+    defaults: { _controller: ExblogBundle:Article:affhome }
 
 my_blog_add_category:
     pattern:  add/category/
